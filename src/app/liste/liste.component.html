@@ -1,0 +1,24 @@
+
+
+<ul class="list-group">
+  <app-item
+    *ngFor="let personne of personnes"
+    [id]="personne.id"
+    [name]="personne.name"
+    [age]="personne.age"
+    [job]="personne.job"
+    [imagePath]="personne.imagePath"
+    (click)="sendData(personne)"
+  >
+  </app-item>
+</ul>
+
+
+<!-- <div>Test</div>
+<app-item [name]="'skander'" [age]="'27'" [job]="'Etudiant'" [id]="1"></app-item>
+<app-item></app-item>
+<app-item></app-item>
+<app-item></app-item>
+*ngFor="let personne of personnes"
+(click)="sendData()"
+-->

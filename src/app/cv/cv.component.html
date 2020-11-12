@@ -1,0 +1,12 @@
+<div class="row m-5">
+  <div class="col-6">
+    <app-liste
+    (sendDataToCV)="processPersonneData($event)"
+    ></app-liste>
+  </div>
+  <div class="col-6">
+    <app-details
+    [personne]="personne"
+    ></app-details>
+  </div>
+</div>

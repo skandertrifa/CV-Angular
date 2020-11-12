@@ -1,0 +1,33 @@
+<div class="row m-5">
+  <div class="col-6">
+    <form
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
+    >
+      <div class="form-group">
+        <label for="Name">Name</label>
+        <input type="text" class="form-control" formControlName="name" id="name" aria-describedby="name" placeholder="Name">
+      </div>
+      <div class="form-group">
+        <label for="Name">Content</label>
+        <input type="text" class="form-control" formControlName="content" id="content" aria-describedby="content" placeholder="Content">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+  <div class="col-6">
+    List of todos
+    <ul class="list-group">
+      <li
+      id={{todo.id}}
+      *ngFor="let todo of todos"
+      class="list-group-item">
+          {{todo.name}} : {{todo.content}}
+          <button
+          class="btn"
+          (click)="deleteTodo(todo.id)"
+          ><i class="fa fa-trash" aria-hidden="true"></i></button>
+      </li>
+    </ul>
+  </div>
+</div>
