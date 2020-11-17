@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { EmbaucheService } from './../embauche/services/embauche.service';
 
 @Component({
   selector: 'app-details',
@@ -14,9 +15,15 @@ export class DetailsComponent implements OnInit {
     age: 35,
     imagePath: ''
   };
-  constructor() { }
+  constructor(private embaucheService: EmbaucheService) { }
 
   ngOnInit(): void {
+  }
+  embaucheClick(): void {
+    const message = this.embaucheService.addToEmbauche(this.personne);
+    if (message === 'error') {
+      window.alert('déjà embauché');
+    }
   }
 
 }

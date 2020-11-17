@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { CvService } from './../cv/services/cv.service';
 import { Personne } from './../shared/models/personne.model';
 
 @Component({
@@ -7,19 +8,19 @@ import { Personne } from './../shared/models/personne.model';
   styleUrls: ['./liste.component.css']
 })
 export class ListeComponent implements OnInit {
-  personnes = [
-    {id: 1, name: 'Skander', job: 'Student', age: 15, imagePath: '../../assets/images/rotating_card_profile2.png' },
-    {id: 2, name: 'Cyrine', job: 'Mechanic ', age: 25, imagePath: '../../assets/images/rotating_card_profile.png' },
-    {id: 3, name: 'Soltane', job: 'No job', age: 35, imagePath: '../../assets/images/rotating_card_profile3.png' },
-  ];
+
+  personnes = [];
+
   @Output() sendDataToCV = new EventEmitter();
-  constructor() { }
+  constructor(cvService: CvService) {
+    this.personnes = cvService.getPersonnes();
+   }
 
   ngOnInit(): void {
   }
 
   // tslint:disable-next-line: typedef
-  sendData(personne) {
+  sendData(personne: Personne): void {
     this.sendDataToCV.emit(personne);
   }
 

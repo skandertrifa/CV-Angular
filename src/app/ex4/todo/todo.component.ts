@@ -13,15 +13,14 @@ export class TodoComponent implements OnInit {
   form: FormGroup;
 
   constructor(
-    // tslint:disable-next-line: no-shadowed-variable
-    private TodoService: TodoService,
+    private todoService: TodoService,
     ) {
-      this.TodoService.logger();
+      this.todoService.logger();
   }
 
   ngOnInit(): void {
     this.initForm();
-    this.todos = this.TodoService.getTodos();
+    this.todos = this.todoService.getTodos();
   }
   initForm(): void {
     /** field1, textArea1, textArea2 are form control instances */
@@ -31,7 +30,7 @@ export class TodoComponent implements OnInit {
     });
  }
   deleteTodo(id: number): void{
-    this.todos = this.TodoService.deleteTodo(id);
+    this.todos = this.todoService.deleteTodo(id);
   }
   onSubmit(): void {
     // code here after submit
@@ -39,7 +38,7 @@ export class TodoComponent implements OnInit {
     console.log(this.form.value.name);
     const todo = new Todo(this.getNextID(), this.form.value.name, this.form.value.content);
     console.log(todo);
-    this.TodoService.addTodo(todo);
+    this.todoService.addTodo(todo);
     this.form.reset();
   }
   getNextID(): number {

@@ -1,0 +1,9 @@
+<p>Liste des embauches pré selectionnés</p>
+
+<ul class="list-group list-group-horizontal mb-5">
+  <li *ngFor="let embauche of personnes"  class="list-group-item">
+    <img src="{{embauche.imagePath}}" class="img-thumbnail"
+    style="width:25%;
+     height: 60px">
+    {{embauche.name}}
+</ul>

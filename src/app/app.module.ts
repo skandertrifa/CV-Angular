@@ -12,6 +12,7 @@ import { ItemComponent } from './item/item.component';
 import { Directex3Directive } from './ex3/directex3.directive';
 import { Ex3Component } from './ex3/ex3/ex3.component';
 import { TodoComponent } from './ex4/todo/todo.component';
+import { EmbaucheComponent } from './embauche/embauche.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { TodoComponent } from './ex4/todo/todo.component';
     ItemComponent,
     Directex3Directive,
     Ex3Component,
-    TodoComponent
+    TodoComponent,
+    EmbaucheComponent
   ],
   imports: [
     BrowserModule,
